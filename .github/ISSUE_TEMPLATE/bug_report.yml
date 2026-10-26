@@ -1,0 +1,55 @@
+name: Bug report
+description: Report a reproducible bug (redact all secrets)
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include passwords, tokens, cookies, student IDs, phone numbers, or full campus links. Redact logs. Security issues should use GitHub Security Advisories instead.
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Output of `wzvtc version`
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: OS / Node
+      description: e.g. Windows 11, Node 22.12
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Command
+      description: The command you ran (redact secrets)
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: Include error.code and request_id; do not paste tokens or raw HTML
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Redacted logs
+      description: Optional. Remove PII and secrets.
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirm
+      options:
+        - label: I removed credentials, tokens, student IDs, phone numbers, and full campus links.
+          required: true

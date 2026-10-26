@@ -1,0 +1,75 @@
+{
+  "name": "wzvtc-anything",
+  "version": "0.3.0-m2",
+  "description": "WZVTC campus services for AI agents: JSON CLI + Vault + Agent Skill",
+  "license": "MIT",
+  "author": "WZVTC-Anything contributors",
+  "private": true,
+  "packageManager": "pnpm@11.1.2",
+  "type": "module",
+  "bin": {
+    "wzvtc": "./dist/main.js"
+  },
+  "files": [
+    "dist",
+    "skills"
+  ],
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "keywords": [
+    "wzvtc",
+    "campus",
+    "agent",
+    "cli",
+    "skill",
+    "vault",
+    "typescript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/windfsy/wzvtc-anything.git"
+  },
+  "homepage": "https://windfsy.github.io/wzvtc-anything/",
+  "bugs": {
+    "url": "https://github.com/windfsy/wzvtc-anything/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx src/main.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "schema": "tsx src/main.ts schema --compact",
+    "smoke": "node dist/main.js version",
+    "docs:commands": "tsx scripts/generate-command-reference.ts",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "pnpm docs:commands && vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "release:check": "pnpm typecheck && pnpm test && pnpm build && pnpm docs:build && npm pack --dry-run",
+    "prepublishOnly": "pnpm release:check"
+  },
+  "dependencies": {
+    "@napi-rs/keyring": "^2.1.2",
+    "commander": "^15.0.0",
+    "hash-wasm": "^4.12.0",
+    "qs": "^6.16.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "@types/qs": "^6.15.1",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitepress": "^1.6.4",
+    "vitest": "^5.0.5"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  }
+}

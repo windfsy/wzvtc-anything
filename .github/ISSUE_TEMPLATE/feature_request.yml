@@ -1,0 +1,31 @@
+name: Feature request
+description: Suggest a capability or improvement
+title: "[feature] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What user/Agent problem are you solving?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: Commands, tools, Skill behavior, or docs changes
+    validations:
+      required: true
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risks / boundaries
+      description: Auth, write operations, third-party ToS, PII, or security concerns
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope check
+      options:
+        - label: This does not require credential sharing, CAPTCHA OCR, or anti-bot evasion.
+          required: true

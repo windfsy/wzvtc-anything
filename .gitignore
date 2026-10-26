@@ -1,0 +1,17 @@
+node_modules/
+dist/
+coverage/
+*.log
+.env
+.env.*
+tmp/
+.tmp/
+docs/.vitepress/dist/
+docs/.vitepress/cache/
+.wzvtc-anything/
+*.tgz
+*.har
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

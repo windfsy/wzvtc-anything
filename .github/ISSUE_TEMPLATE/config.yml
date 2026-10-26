@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security report
+    url: https://github.com/windfsy/wzvtc-anything/security/advisories/new
+    about: Report vulnerabilities privately; do not post secrets in issues.
+  - name: Documentation
+    url: https://windfsy.github.io/wzvtc-anything/
+    about: Read quickstart, security model, limitations, and command reference.
