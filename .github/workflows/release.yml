@@ -27,7 +27,7 @@ jobs:
       - run: pnpm release:check
       - name: Determine npm dist-tag
         id: dist-tag
-        run: node -e "const v=require('./package.json').version; process.stdout.write('tag=' + (v.includes('-') ? 'next' : 'latest') + '\n')" >> "$GITHUB_OUTPUT"
+        run: node scripts/npm-dist-tag.mjs >> "$GITHUB_OUTPUT"
       - name: Publish
         run: npm publish --provenance --access public --tag ${{ steps.dist-tag.outputs.tag }}
         env:
